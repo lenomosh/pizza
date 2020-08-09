@@ -30,10 +30,10 @@ function App() {
   const [products, setProducts] = useState([1,2,3,4,5,6,6,7,8])
 
   return (
-    <div>
+    <div className="container">
       <div className="row">
         {pizzas.map(element=>
-        <div className="col-md-4">        
+        <div className="col-md-4 py-4">        
         <ProductCard product={element}/>
         </div>
         )}
