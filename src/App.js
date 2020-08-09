@@ -1,25 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react';
+import './App.scss';
+import ProductCard from './components/ProductCard/ProductCard.component';
 
 function App() {
+  const pizzas =[{
+    name:"Chicken Mushroom Pizza",
+    price:900,
+    image:"images/chickenmushrooms.jpg"
+  },
+  {
+    name:"Chicken Mushroom Pizza",
+    price:900,
+    image:"images/chickenmushrooms.jpg"
+  },
+  {
+    name:"Chicken Mushroom Pizza",
+    price:900,
+    image:"images/chickenmushrooms.jpg"
+  },{
+    name:"Chicken Mushroom Pizza",
+    price:900,
+    image:"images/chickenmushrooms.jpg"
+  },
+  {
+    name:"Chicken Mushroom Pizza",
+    price:900,
+    image:"images/chickenmushrooms.jpg"
+  },]
+  const [products, setProducts] = useState([1,2,3,4,5,6,6,7,8])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="row">
+        {pizzas.map(element=>
+        <div className="col-md-4">        
+        <ProductCard product={element}/>
+        </div>
+        )}
+      </div>
+
     </div>
+    
   );
 }
 
