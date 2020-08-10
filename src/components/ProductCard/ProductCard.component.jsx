@@ -1,7 +1,7 @@
 import React from "react";
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const ProductCard = ({ product}) => {
+const ProductCard = ({ product }) => {
   return (
     <div className="card" style={{ width: "18rem" }}>
       <img className="card-img-top" src={product.image} alt="Card image cap" />
@@ -12,12 +12,15 @@ const ProductCard = ({ product}) => {
             <h5>KES {product.price}</h5>
           </div>
           <div className="col-md-12">
-            <Link to={{
-              pathname:"/cart",
-              state:{
-                product
-              }
-            }} className="btn btn-xs">
+            <Link
+              to={{
+                pathname: "/cart",
+                state: {
+                  product,
+                },
+              }}
+              className="btn btn-xs"
+            >
               Add to Cart
             </Link>
           </div>
