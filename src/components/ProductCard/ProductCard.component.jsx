@@ -1,5 +1,4 @@
 import React from "react";
-import ProductDetails from "../ProductDetails/ProductDetails.component";
 import { Route, Link } from "react-router-dom";
 
 const ProductCard = ({ product,router }) => {
