@@ -1,22 +1,11 @@
 import React, { useState } from "react";
 
-const ProductDetails = ({location:{state:{product}} }) => {
-
+const ProductDetails = ({
+  location: {
+    state: { product },
+  },
+}) => {
   const [success, setSuccess] = useState(false);
-  const [crustings, setCrustings] = useState([
-    {
-      name: "Crispy",
-      price: 200,
-    },
-    {
-      name: "Stuffed",
-      price: 200,
-    },
-    {
-      name: "Glotting Free",
-      price: 200,
-    },
-  ]);
   const [meatToppings, setMeatToppings] = useState([
     {
       name: "Extra Macon",
@@ -79,7 +68,7 @@ const ProductDetails = ({location:{state:{product}} }) => {
   ]);
   const [selectedPizza, setSelectedPizza] = useState(product);
   const refresh = () => {
-    window.location.href ="/"
+    window.location.href = "/";
   };
   const [cartItems, setcartItems] = useState([]);
   const pizzaSizes = [
@@ -226,7 +215,10 @@ const ProductDetails = ({location:{state:{product}} }) => {
                   </tr>
                 </tfoot>
               </table>
-              <button onClick={()=>setSuccess(true)} className="btn btn-block">
+              <button
+                onClick={() => setSuccess(true)}
+                className="btn btn-block"
+              >
                 CheckOut
               </button>
             </div>
@@ -236,7 +228,10 @@ const ProductDetails = ({location:{state:{product}} }) => {
             <p>
               The order was place successfully. Kindly await for a confirmation
             </p>
-            <button onClick={()=>refresh()} className="btn btn-success"> Okay</button>
+            <button onClick={() => refresh()} className="btn btn-success">
+              {" "}
+              Okay
+            </button>
           </div>
         )}
       </div>
