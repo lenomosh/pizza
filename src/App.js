@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.scss";
 import ProductCard from "./components/ProductCard/ProductCard.component";
 import ProductDetails from "./components/ProductDetails/ProductDetails.component";
