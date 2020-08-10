@@ -5,19 +5,21 @@ const ProductDetails = ({
     state: { product },
   },
 }) => {
-    const crustings =[
-        {
-            name:"Scrispy",
-            price:250
-        },{
-            name:"Stuffed",
-            price:250
-        },{
-            name:"Glottin-free",
-            price:250
-        }
-]
-const [selectedCrusting, setselectedCrusting] = useState(null)
+  const crustings = [
+    {
+      name: "Scrispy",
+      price: 250,
+    },
+    {
+      name: "Stuffed",
+      price: 250,
+    },
+    {
+      name: "Glottin-free",
+      price: 250,
+    },
+  ];
+  const [selectedCrusting, setselectedCrusting] = useState(null);
   const [success, setSuccess] = useState(false);
   const [meatToppings, setMeatToppings] = useState([
     {
@@ -107,10 +109,9 @@ const [selectedCrusting, setselectedCrusting] = useState(null)
     let total = cartCopy.map(({ price }) => price);
     let newTotal =
       total.length > 0 && total.reduce((prevVal, newVal) => prevVal + newVal);
-      if (selectedCrusting) {
-          
-      }
-      newTotal += selectedCrusting && selectedCrusting.price
+    if (selectedCrusting) {
+    }
+    newTotal += selectedCrusting && selectedCrusting.price;
     return selectedPizza && selectedPizza.price + newTotal;
   };
   const inCart = (product) => {
@@ -173,7 +174,9 @@ const [selectedCrusting, setselectedCrusting] = useState(null)
                         setselectedCrusting(element);
                       }}
                       className={`btn btn-xs  btn-block "+ ${
-                        selectedCrusting && selectedCrusting.name ===element.name && "btn-success"
+                        selectedCrusting &&
+                        selectedCrusting.name === element.name &&
+                        "btn-success"
                       }`}
                     >
                       <h4>{element.name}</h4> @ <i>KES. {element.price}</i>
@@ -230,10 +233,12 @@ const [selectedCrusting, setselectedCrusting] = useState(null)
                   </tr>
                 </thead>
                 <tbody>
-                    {selectedCrusting && <tr>
-                        <td>{selectedCrusting.name}</td>
-                        <td>{selectedCrusting.price}</td>
-                        </tr>}
+                  {selectedCrusting && (
+                    <tr>
+                      <td>{selectedCrusting.name}</td>
+                      <td>{selectedCrusting.price}</td>
+                    </tr>
+                  )}
                   {cartItems.map((element) => (
                     <tr key={element.name + element.price}>
                       <td>{element.name}</td>
@@ -261,18 +266,18 @@ const [selectedCrusting, setselectedCrusting] = useState(null)
             </div>
           </div>
         ) : (
-            <div className="col-md-12">
-
-          <div className="alert alert-success" role="alert">
-            <p>
-              The order was place successfully. Kindly await for a confirmation
-            </p>
-            <button onClick={() => refresh()} className="btn btn-success">
-              {" "}
-              Okay
-            </button>
-          </div>
+          <div className="col-md-12">
+            <div className="alert alert-success" role="alert">
+              <p>
+                The order was place successfully. Kindly await for a
+                confirmation
+              </p>
+              <button onClick={() => refresh()} className="btn btn-success">
+                {" "}
+                Okay
+              </button>
             </div>
+          </div>
         )}
       </div>
     </div>
