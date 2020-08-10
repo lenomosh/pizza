@@ -104,12 +104,13 @@ const [selectedCrusting, setselectedCrusting] = useState(null)
   ];
   const calcTotal = () => {
     const cartCopy = JSON.parse(JSON.stringify(cartItems));
-    const newArr = cartCopy.forEach((element) => delete element.name);
     let total = cartCopy.map(({ price }) => price);
-
-    //   const total = cartCopy.length>0 && cartCopy.reduce((prevValue,newVal)=> parseInt(prevValue)+ newVal.price)
     let newTotal =
       total.length > 0 && total.reduce((prevVal, newVal) => prevVal + newVal);
+      if (selectedCrusting) {
+          
+      }
+      newTotal += selectedCrusting && selectedCrusting.price
     return selectedPizza && selectedPizza.price + newTotal;
   };
   const inCart = (product) => {
