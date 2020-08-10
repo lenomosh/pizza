@@ -1,5 +1,4 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ProductDetails from "../ProductDetails/ProductDetails.component";
 import { Route, Link } from "react-router-dom";
 
