@@ -1,21 +1,27 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ProductDetails from "../ProductDetails/ProductDetails.component";
+import { Route, Link } from "react-router-dom";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product,router }) => {
   return (
     <div className="card" style={{ width: "18rem" }}>
       <img className="card-img-top" src={product.image} alt="Card image cap" />
-      <div className="card-body">
+      <div className="card-body center">
         <h4 className="card-title">{product.name}</h4>
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-12">
             <h5>KES {product.price}</h5>
           </div>
-          <div className="col-md-6">
-            <a href="#" className="btn btn-xs btn-primary">
-              <FontAwesomeIcon icon="coffee" />
+          <div className="col-md-12">
+            <Link to={{
+              pathname:"/cart",
+              state:{
+                product
+              }
+            }} className="btn btn-xs">
               Add to Cart
-            </a>
+            </Link>
           </div>
         </div>
       </div>
