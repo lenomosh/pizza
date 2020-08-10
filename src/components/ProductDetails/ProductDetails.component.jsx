@@ -5,6 +5,19 @@ const ProductDetails = ({
     state: { product },
   },
 }) => {
+    const crustings =[
+        {
+            name:"Scrispy",
+            price:250
+        },{
+            name:"Stuffed",
+            price:250
+        },{
+            name:"Glottin-free",
+            price:250
+        }
+]
+const [selectedCrusting, setselectedCrusting] = useState(null)
   const [success, setSuccess] = useState(false);
   const [meatToppings, setMeatToppings] = useState([
     {
@@ -149,6 +162,25 @@ const ProductDetails = ({
                 ))}
               </div>
               <br />
+              <h3>Crustings</h3>
+              <div className="row">
+                {crustings.map((element) => (
+                  <div key={element.name} className="col-md-3">
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setselectedCrusting(element);
+                      }}
+                      className={`btn btn-xs  btn-block "+ ${
+                        selectedCrusting && selectedCrusting.name ===element.name && "btn-success"
+                      }`}
+                    >
+                      <h4>{element.name}</h4> @ <i>KES. {element.price}</i>
+                    </button>
+                  </div>
+                ))}
+              </div>
+              <br />
               <h3>Meat Toppings</h3>
               <hr />
               <div className="row">
@@ -197,6 +229,10 @@ const ProductDetails = ({
                   </tr>
                 </thead>
                 <tbody>
+                    {selectedCrusting && <tr>
+                        <td>{selectedCrusting.name}</td>
+                        <td>{selectedCrusting.price}</td>
+                        </tr>}
                   {cartItems.map((element) => (
                     <tr key={element.name + element.price}>
                       <td>{element.name}</td>
@@ -224,6 +260,8 @@ const ProductDetails = ({
             </div>
           </div>
         ) : (
+            <div className="col-md-12">
+
           <div className="alert alert-success" role="alert">
             <p>
               The order was place successfully. Kindly await for a confirmation
@@ -233,6 +271,7 @@ const ProductDetails = ({
               Okay
             </button>
           </div>
+            </div>
         )}
       </div>
     </div>
